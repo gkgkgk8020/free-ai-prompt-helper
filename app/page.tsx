@@ -24,6 +24,12 @@ export default function Home() {
   const [mlReady, setMlReady] = useState(false);
   const outputRef = useRef<HTMLDivElement>(null);
 
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+const toggleFAQ = (index: number) => {
+  setOpenFAQ(openFAQ === index ? null : index);
+};
+
 useEffect(() => {
   const interval = setInterval(() => {
     if (typeof window !== "undefined" && typeof window.ml === "function") {
@@ -142,129 +148,127 @@ const finalOutput =
     onChange={(e) => setPrompt(e.target.value)}
     placeholder="Paste your prompt or describe what you're trying to do..."
     maxLength={1000}
-    className="w-full p-4 border border-gray-300 rounded-xl text-base leading-relaxed resize-none h-[11.5rem]"
+    className="w-full p-4 border border-gray-300 rounded-xl text-base leading-relaxed resize-none h-[11.5rem] text-black dark:text-white bg-white dark:bg-gray-900 placeholder-gray-500 dark:placeholder-gray-400"
   />
-  <div className={`text-sm mt-1 text-right ${prompt.length > maxCharacters ? 'text-red-500 font-semibold' : 'text-gray-500'}`}>
+  <div className={`text-sm mt-1 text-right ${prompt.length > maxCharacters ? 'text-red-500 font-semibold' : 'text-gray-500 dark:text-gray-400'}`}>
     {prompt.length}/{maxCharacters} characters
   </div>
 </div>
 
-
 {/* === Section Header === */}
-<h2 className="text-center text-base font-semibold mb-4">Select your improvements</h2>
+<h2 className="text-center text-base font-semibold mb-4 text-black dark:text-white">Select your improvements</h2>
 
 {/* === Labeled Dropdowns === */}
 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
 
   {/* Tone */}
-  <div>
-    <label className="block text-sm font-medium mb-1 text-center">Tone</label>
-    <select
-      value={tone}
-      onChange={(e) => setTone(e.target.value)}
-      className="w-full p-3 border border-gray-300 rounded-2xl text-sm text-center bg-white appearance-none"
-    >
-      <option disabled value="">Select</option>
-      <option value="neutral">Neutral</option>
-      <option value="friendly">Friendly</option>
-      <option value="professional">Professional</option>
-      <option value="casual">Casual</option>
-      <option value="urgent">Urgent</option>
-    </select>
-  </div>
-
-  {/* Length */}
-  <div>
-    <label className="block text-sm font-medium mb-1 text-center">Length</label>
-    <select
-      value={length}
-      onChange={(e) => setLength(e.target.value)}
-      className="w-full p-3 border border-gray-300 rounded-2xl text-sm text-center bg-white appearance-none"
-    >
-      <option disabled value="">Select</option>
-      <option value="short">Short</option>
-      <option value="medium">Medium</option>
-      <option value="long">Long</option>
-    </select>
-  </div>
-
-  {/* Style */}
-  <div>
-    <label className="block text-sm font-medium mb-1 text-center">Style</label>
-    <select
-      value={style}
-      onChange={(e) => setStyle(e.target.value)}
-      className="w-full p-3 border border-gray-300 rounded-2xl text-sm text-center bg-white appearance-none"
-    >
-      <option disabled value="">Select</option>
-      <option value="clear">Clear</option>
-      <option value="detailed">Detailed</option>
-      <option value="persuasive">Persuasive</option>
-      <option value="instructive">Instructive</option>
-    </select>
-  </div>
-
-  {/* Audience */}
-  <div>
-    <label className="block text-sm font-medium mb-1 text-center">Audience</label>
-    <select
-      value={audience}
-      onChange={(e) => setAudience(e.target.value)}
-      className="w-full p-3 border border-gray-300 rounded-2xl text-sm text-center bg-white appearance-none"
-    >
-      <option disabled value="">Select</option>
-      <option value="general public">General Public</option>
-      <option value="employer">Employer</option>
-      <option value="students">Students</option>
-      <option value="customers">Customers</option>
-      <option value="team members">Team Members</option>
-    </select>
-  </div>
-
-  {/* Medium */}
-  <div>
-    <label className="block text-sm font-medium mb-1 text-center">Medium</label>
-    <select
-      value={platform}
-      onChange={(e) => setPlatform(e.target.value)}
-      className="w-full p-3 border border-gray-300 rounded-2xl text-sm text-center bg-white appearance-none"
-    >
-      <option disabled value="">Select</option>
-      <option value="email">Email</option>
-      <option value="social media">Social Media</option>
-      <option value="presentation">Presentation</option>
-      <option value="chat message">Chat Message</option>
-      <option value="formal letter">Formal Letter</option>
-    </select>
-  </div>
-
-  {/* Type */}
-  <div>
-    <label className="block text-sm font-medium mb-1 text-center">Type</label>
-    <select
-      value={contentType}
-      onChange={(e) => setContentType(e.target.value)}
-      className="w-full p-3 border border-gray-300 rounded-2xl text-sm text-center bg-white appearance-none"
-    >
-      <option disabled value="">Select</option>
-      <option value="statement">Statement</option>
-      <option value="question">Question</option>
-      <option value="plan of action">Plan</option>
-      <option value="instruction">Instruction</option>
-      <option value="script">Script</option>
-    </select>
-  </div>
+<div className="flex flex-col items-center">
+  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Tone</label>
+  <select
+    value={tone}
+    onChange={(e) => setTone(e.target.value)}
+    className="w-full p-3 border border-gray-300 rounded-2xl text-sm bg-white dark:bg-gray-900 text-black dark:text-white text-center appearance-none"
+  >
+    <option disabled value="">Select</option>
+    <option value="neutral">Neutral</option>
+    <option value="friendly">Friendly</option>
+    <option value="professional">Professional</option>
+    <option value="casual">Casual</option>
+    <option value="urgent">Urgent</option>
+  </select>
 </div>
-           
-      <button
-      type="submit"
-      className="w-full bg-[#F58220] text-white py-2 rounded-md hover:bg-[#E6731A] text-sm transition-transform transform hover:scale-105 duration-200 ease-in-out"
-      >
-      Improve Prompt
-      </button>
 
+{/* Length */}
+<div className="flex flex-col items-center">
+  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Length</label>
+  <select
+    value={length}
+    onChange={(e) => setLength(e.target.value)}
+    className="w-full p-3 border border-gray-300 rounded-2xl text-sm bg-white dark:bg-gray-900 text-black dark:text-white text-center appearance-none"
+  >
+    <option disabled value="">Select</option>
+    <option value="short">Short</option>
+    <option value="medium">Medium</option>
+    <option value="long">Long</option>
+  </select>
+</div>
 
-      <button
+{/* Style */}
+<div className="flex flex-col items-center">
+  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Style</label>
+  <select
+    value={style}
+    onChange={(e) => setStyle(e.target.value)}
+    className="w-full p-3 border border-gray-300 rounded-2xl text-sm bg-white dark:bg-gray-900 text-black dark:text-white text-center appearance-none"
+  >
+    <option disabled value="">Select</option>
+    <option value="clear">Clear</option>
+    <option value="detailed">Detailed</option>
+    <option value="persuasive">Persuasive</option>
+    <option value="instructive">Instructive</option>
+  </select>
+</div>
+
+{/* Audience */}
+<div className="flex flex-col items-center">
+  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Audience</label>
+  <select
+    value={audience}
+    onChange={(e) => setAudience(e.target.value)}
+    className="w-full p-3 border border-gray-300 rounded-2xl text-sm bg-white dark:bg-gray-900 text-black dark:text-white text-center appearance-none"
+  >
+    <option disabled value="">Select</option>
+    <option value="general public">General Public</option>
+    <option value="employer">Employer</option>
+    <option value="students">Students</option>
+    <option value="customers">Customers</option>
+    <option value="team members">Team Members</option>
+  </select>
+</div>
+
+{/* Medium */}
+<div className="flex flex-col items-center">
+  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Medium</label>
+  <select
+    value={platform}
+    onChange={(e) => setPlatform(e.target.value)}
+    className="w-full p-3 border border-gray-300 rounded-2xl text-sm bg-white dark:bg-gray-900 text-black dark:text-white text-center appearance-none"
+  >
+    <option disabled value="">Select</option>
+    <option value="email">Email</option>
+    <option value="social media">Social Media</option>
+    <option value="presentation">Presentation</option>
+    <option value="chat message">Chat Message</option>
+    <option value="formal letter">Formal Letter</option>
+  </select>
+</div>
+
+{/* Type */}
+<div className="flex flex-col items-center">
+  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Type</label>
+  <select
+    value={contentType}
+    onChange={(e) => setContentType(e.target.value)}
+    className="w-full p-3 border border-gray-300 rounded-2xl text-sm bg-white dark:bg-gray-900 text-black dark:text-white text-center appearance-none"
+  >
+    <option disabled value="">Select</option>
+    <option value="statement">Statement</option>
+    <option value="question">Question</option>
+    <option value="plan of action">Plan</option>
+    <option value="instruction">Instruction</option>
+    <option value="script">Script</option>
+  </select>
+</div>
+</div>
+
+<button
+  type="submit"
+  className="w-full bg-[#F58220] text-white py-2 rounded-md hover:bg-[#E6731A] text-sm transition-transform transform hover:scale-105 duration-200 ease-in-out"
+>
+  Improve Prompt
+</button>
+
+<button
   type="button"
   onClick={() => {
     setPrompt("");
@@ -276,11 +280,11 @@ const finalOutput =
     setContentType("");
     setResult("");
   }}
-    
-    className="w-full mt-2 bg-orange-200 text-gray-800 py-2 rounded-md hover:bg-orange-300 transition text-sm"
-    >
-     Clear All
-    </button>
+  className="w-full mt-2 bg-orange-200 text-gray-800 py-2 rounded-md hover:bg-orange-300 transition text-sm"
+>
+  Clear All
+</button>
+
 
 
       </form>
@@ -626,8 +630,8 @@ const finalOutput =
 {/* === Section 4: FAQ with Framed Card and Mirrored Side Ads === */}
 <div className="flex flex-col lg:flex-row w-full justify-center items-start gap-8 mt-12 px-4 sm:px-6 md:px-8">
 
-{/* Left Column: Skyscraper Ad (centered) */}
-<div className="hidden lg:flex flex-col items-center w-1/4">
+  {/* Left Ad */}
+  <div className="hidden lg:flex flex-col items-center w-1/4">
     <div className="flex flex-col justify-center h-full min-h-[680px]">
       <div className="w-64 h-[600px] bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
         Left Skyscraper Ad
@@ -635,174 +639,96 @@ const finalOutput =
     </div>
   </div>
 
-  {/* Center Column: FAQ Card */}
+  {/* FAQ Content */}
   <div className="flex-1 max-w-xl bg-white p-8 rounded-xl shadow-md text-sm min-h-[680px]">
     <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
-  <img 
-    src="/logos/logo.png" 
-    alt="Thumbs Up Logo" 
-    className="inline-block w-8 h-8 mr-2 align-top" 
-  />
-  Frequently Asked Questions
-</h2>
+      <img src="/logos/logo.png" alt="Thumbs Up Logo" className="inline-block w-8 h-8 mr-2 align-top" />
+      Frequently Asked Questions
+    </h2>
 
-    <div className="space-y-6 text-[1rem]"></div>
-
-   {/* FAQ Item 0 (main) */}
-<div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-  <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-    How much difference does good prompting make?
-  </p>
-  <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-    A huge difference. The quality of your prompt directly affects how well tools like ChatGPT, Claude, and Gemini respond. Clear, well-structured prompts can turn a vague or robotic reply into something useful, persuasive, and even creative. Whether you're writing, researching, or planning great prompting can save time, boost accuracy, and make AI work the way you want. That’s exactly why this tool exists: to help you get better results with less trial and error.
-  </p>
-</div>
- 
-
-  {/* FAQ Item 1 */}
-  <div className="group border-b border-gray-200 pb-4 transition-all duration-300 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      What is a free AI prompt generator?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:group-hover:max-h-[500px] sm:group-hover:opacity-100 sm:group-hover:block sm:block hidden">
-      A free AI prompt generator helps you craft better inputs for ChatGPT, Claude, Gemini, and other models to get more useful, human-like responses.
-    </p>
+    {[
+      {
+        q: "How much difference does good prompting make?",
+        a: "A huge difference. The quality of your prompt directly affects how well tools like ChatGPT, Claude, and Gemini respond. Clear, well-structured prompts can turn a vague or robotic reply into something useful, persuasive, and even creative. Whether you're writing, researching, or planning, great prompting can save time, boost accuracy, and make AI work the way you want.",
+      },
+      {
+        q: "What is a free AI prompt generator?",
+        a: "A free AI prompt generator helps you craft better inputs for ChatGPT, Claude, Gemini, and other models to get more useful, human-like responses.",
+      },
+      {
+        q: "How can I improve my prompts for AI tools?",
+        a: "You can improve prompts by refining tone, length, style, and structure. This tool makes it easy by guiding you through each step for clearer and more effective outputs.",
+      },
+      {
+        q: "Can I use this for ChatGPT, Claude, Gemini, or DeepSeek?",
+        a: "Yes. Our AI prompt helper is designed to work with all major tools including ChatGPT, Claude, Gemini, and DeepSeek. Just copy the optimized result and paste it in.",
+      },
+      {
+        q: "What’s the best prompt structure for ChatGPT?",
+        a: "A great prompt starts with a clear instruction, includes context, and finishes with a format suggestion. This tool generates those for you in seconds.",
+      },
+      {
+        q: "Can I use this prompt helper for emails, content, and social posts?",
+        a: "Absolutely. Whether you're writing emails, blog content, marketing copy, or social media posts, this tool adapts your prompt for any format and platform.",
+      },
+      {
+        q: "Is there a completely free tool to improve AI prompt quality?",
+        a: "Yes. This site offers a 100% free AI prompt helper with no login required. It’s supported by ads and affiliate links so you can use it as much as you like.",
+      },
+      {
+        q: "How do I get more accurate answers from AI?",
+        a: "More accurate answers come from better prompts. This tool helps you clarify goals, define the audience, and guide tone for stronger, AI-friendly inputs.",
+      },
+      {
+        q: "Can I use this for DALL·E or MidJourney prompt writing?",
+        a: "Yes. While designed for text-based prompts, you can use this tool to build clearer, more detailed image prompts for AI models like DALL·E and MidJourney.",
+      },
+      {
+        q: "What’s the easiest way to optimize a prompt?",
+        a: "The easiest way is to use a prompt helper like this. It walks you through options like tone, length, and content type to create a polished AI input in seconds.",
+      },
+      {
+        q: "What tone should I use in my AI prompts?",
+        a: "The tone depends on your goal — professional, casual, persuasive, etc. Our prompt helper lets you customize tone easily to get the right kind of AI response.",
+      },
+      {
+        q: "Is this tool useful for school, work, or business use?",
+        a: "Yes. It’s ideal for students, marketers, customer service teams, and professionals who need clearer and more effective outputs from AI tools.",
+      },
+      {
+        q: "Can I get examples of before and after prompt improvements?",
+        a: "Yes. Scroll up to the “How This Tool Works” section to see a real-world example comparing unrefined vs improved prompts, side by side.",
+      },
+      {
+        q: "Will there be a premium version of this tool?",
+        a: "Maybe! We’re exploring the idea of a Premium Model built around your feedback. If you’re curious or want to help shape it, check out the section above and join our interest list.",
+      },
+      {
+        q: "Where can I find more information on prompt engineering?",
+        a: "You’ll find an entire section on prompt writing, AI tips, and how prompting actually works by clicking the “More Info” tab at the top of the page.",
+      },
+    ].map((item, index) => (
+      <div
+        key={index}
+        className="group border-b border-gray-200 pb-4 hover:bg-gray-50 cursor-pointer"
+        onClick={() => toggleFAQ(index)}
+      >
+        <p className="font-medium text-gray-800 group-hover:text-violet-800">
+          {item.q}
+        </p>
+        <p
+          className={`text-gray-600 mt-2 overflow-hidden transition-all duration-500 ease-in-out
+          ${openFAQ === index ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
+          sm:max-h-0 sm:opacity-0 sm:group-hover:max-h-[500px] sm:group-hover:opacity-100`}
+        >
+          {item.a}
+        </p>
+      </div>
+    ))}
   </div>
 
-  {/* FAQ Item 2 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      How can I improve my prompts for AI tools?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:group-hover:max-h-[500px] sm:group-hover:opacity-100 sm:group-hover:block sm:block hidden">
-      You can improve prompts by refining tone, length, style, and structure. This tool makes it easy by guiding you through each step for clearer and more effective outputs.
-    </p>
-  </div>
-
-  {/* FAQ Item 3 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      Can I use this for ChatGPT, Claude, Gemini, or DeepSeek?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      Yes. Our AI prompt helper is designed to work with all major tools including ChatGPT, Claude, Gemini, and DeepSeek. Just copy the optimized result and paste it in.
-    </p>
-  </div>
-
-  {/* FAQ Item 4 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      What’s the best prompt structure for ChatGPT?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      A great prompt starts with a clear instruction, includes context, and finishes with a format suggestion. This tool generates those for you in seconds.
-    </p>
-  </div>
-
-  {/* FAQ Item 5 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      Can I use this prompt helper for emails, content, and social posts?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      Absolutely. Whether you're writing emails, blog content, marketing copy, or social media posts, this tool adapts your prompt for any format and platform.
-    </p>
-  </div>
-
-  {/* FAQ Item 6 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      Is there a completely free tool to improve AI prompt quality?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      Yes. This site offers a 100% free AI prompt helper with no login required. It’s supported by ads and affiliate links so you can use it as much as you like.
-    </p>
-  </div>
-
-  {/* FAQ Item 7 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      How do I get more accurate answers from AI?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      More accurate answers come from better prompts. This tool helps you clarify goals, define the audience, and guide tone for stronger, AI-friendly inputs.
-    </p>
-  </div>
-
-  {/* FAQ Item 8 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      Can I use this for DALL·E or MidJourney prompt writing?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      Yes. While designed for text-based prompts, you can use this tool to build clearer, more detailed image prompts for AI models like DALL·E and MidJourney.
-    </p>
-  </div>
-
-  {/* FAQ Item 9 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      What’s the easiest way to optimize a prompt?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      The easiest way is to use a prompt helper like this. It walks you through options like tone, length, and content type to create a polished AI input in seconds.
-    </p>
-  </div>
-
-  {/* FAQ Item 10 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      What tone should I use in my AI prompts?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      The tone depends on your goal, professional, casual, persuasive, etc. Our prompt helper lets you customize tone easily to get the right kind of AI response.
-    </p>
-  </div>
-
-  {/* FAQ Item 11 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      Is this tool useful for school, work, or business use?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      Yes. It’s ideal for students, marketers, customer service teams, and professionals who need clearer and more effective outputs from AI tools.
-    </p>
-  </div>
-
-  {/* FAQ Item 12 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      Can I get examples of before and after prompt improvements?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      Yes. Scroll up to the “How This Tool Works” section to see a real-world example comparing unrefined vs improved prompts, side by side.
-    </p>
-  </div>
-
-  {/* FAQ Item 13 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      Will there be a premium version of this tool?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      Maybe! We’re exploring the idea of a Premium Model built around your feedback. If you’re curious or want to help shape it, check out the section above and join our interest list.
-    </p>
-  </div>
-
-  {/* FAQ Item 14 */}
-  <div className="group border-b border-gray-200 pb-4 hover:bg-gray-50">
-    <p className="font-medium text-gray-800 group-hover:text-violet-800 cursor-default">
-      Where can I find more information on prompt engineering?
-    </p>
-    <p className="text-gray-600 mt-2 max-h-0 group-hover:max-h-[500px] group-hover:opacity-100 opacity-0 overflow-hidden transition-all duration-500 ease-in-out sm:block hidden">
-      You’ll find an entire section on prompt writing, AI tips, and how prompting actually works by clicking the “More Info” tab at the top of the page.
-    </p>
-  </div>
-</div>
-
- {/* Right Column: Two 300px-Tall Ads (centered) */}
+  {/* Right Ad */}
   <div className="hidden lg:flex flex-col items-center w-1/4">
-
     <div className="flex flex-col justify-center min-h-[680px] space-y-4">
       <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
         Right Ad #1
@@ -813,6 +739,7 @@ const finalOutput =
     </div>
   </div>
 </div>
+
 
 
 {/* --- Footer Ad Placeholder --- */}
