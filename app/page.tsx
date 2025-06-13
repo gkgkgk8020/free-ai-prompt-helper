@@ -381,22 +381,26 @@ const finalOutput =
 </div> 
 
 
-{/* === Section 2: All Things AI with Perfectly Centered & Aligned Side Ads === */}
-<div className="hidden lg:flex w-full justify-between items-center mt-12 px-8">
+{/* === Section 2: All Things AI with Ads === */}
+<div className="flex flex-col lg:flex-row w-full justify-center items-start mt-12 px-4 sm:px-6 md:px-8">
   
-  {/* Left Column: Centered Ads in Left Third (Now Aligned Height with Right Ad) */}
-  <div className="flex flex-col items-center w-1/4">
-    <div className="w-64 h-60 mb-4 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
+  {/* Left Ad: Hidden on Mobile, Vertically Centered */}
+<div className="hidden lg:flex flex-col items-center w-1/4">
+  <div className="flex flex-col justify-center min-h-[680px] space-y-4">
+    <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
       Left Ad #1
     </div>
     <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
       Left Ad #2
     </div>
   </div>
+</div>
 
-  {/* Center Column: AI Tools Content */}
-  <div className="w-full max-w-xl bg-white p-8 rounded-xl shadow-md text-sm">
-    
+  {/* Center Content: Always Visible */}
+  <div className="w-full lg:max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-md text-sm">
+    {/* ... (All Things AI title, grid, affiliate cards, etc.) */}
+  
+      
     {/* === Section Title & Subheadings === */}
     <div className="text-center mb-6">
       <h2 className="text-3xl font-bold text-gray-800 mb-2">
@@ -558,16 +562,15 @@ const finalOutput =
 
   </div>
 
-  {/* Right Column: Skyscraper Ad, Centered and Height-Aligned */}
-  <div className="flex flex-col items-center w-1/4">
+  {/* Right Ad: Hidden on Mobile, Vertically Centered */}
+<div className="hidden lg:flex flex-col items-center w-1/4">
+  <div className="flex flex-col justify-center min-h-[680px]">
     <div className="w-64 h-[600px] bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
       Right Skyscraper Ad
     </div>
   </div>
-
 </div>
-
-
+</div>
 
 {/* === Premium Model – We're Exploring the Idea === */}
 <div className="mt-12 w-full max-w-xl bg-white border border-gray-200 p-6 rounded-xl shadow-md space-y-6">
@@ -621,9 +624,10 @@ const finalOutput =
 
 
 {/* === Section 4: FAQ with Framed Card and Mirrored Side Ads === */}
-<div className="hidden lg:flex w-full justify-center items-start gap-8 mt-12 px-8">
-  {/* Left Column: Skyscraper Ad (centered) */}
-  <div className="flex flex-col items-center w-1/4">
+<div className="flex flex-col lg:flex-row w-full justify-center items-start gap-8 mt-12 px-4 sm:px-6 md:px-8">
+
+{/* Left Column: Skyscraper Ad (centered) */}
+<div className="hidden lg:flex flex-col items-center w-1/4">
     <div className="flex flex-col justify-center h-full min-h-[680px]">
       <div className="w-64 h-[600px] bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
         Left Skyscraper Ad
@@ -797,7 +801,8 @@ const finalOutput =
 </div>
 
  {/* Right Column: Two 300px-Tall Ads (centered) */}
-  <div className="flex flex-col items-center w-1/4">
+  <div className="hidden lg:flex flex-col items-center w-1/4">
+
     <div className="flex flex-col justify-center min-h-[680px] space-y-4">
       <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
         Right Ad #1

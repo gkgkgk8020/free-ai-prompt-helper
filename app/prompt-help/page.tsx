@@ -71,116 +71,111 @@ export default function PromptHelp() {
 </section>
 
 
-    {/* === Ad-Wrapped Section 2 & 3 Block === */}
-<div className="hidden lg:flex w-full justify-between items-start mt-12 px-8">
-  {/* Left Column: Two Ad Blocks */}
-  <div className="flex flex-col items-center w-1/4 space-y-4">
-    <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
-      Left Ad #1
-    </div>
-    <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
-      Left Ad #2
+{/* === Ad-Wrapped Section 2 & 3 Block === */}
+<div className="flex flex-col lg:flex-row w-full justify-center items-start mt-12 px-4 sm:px-6 md:px-8">
+  
+  {/* Left Column: Hidden on Mobile, Vertically Centered */}
+  <div className="hidden lg:flex flex-col items-center w-1/4">
+    <div className="flex flex-col justify-center min-h-[680px] space-y-4">
+      <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
+        Left Ad #1
+      </div>
+      <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
+        Left Ad #2
+      </div>
     </div>
   </div>
 
-  {/* Center Column: Content Sections */}
-  <div className="w-full max-w-3xl space-y-12">
+  {/* Center Column: Sections 2 & 3 */}
+  <div className="w-full lg:max-w-3xl space-y-12">
+
     {/* === Section 2: What Makes a Good Prompt? === */}
     <section className="bg-white rounded-xl shadow-md p-6">
       <h2 className="text-2xl font-semibold mb-6 text-center">
-  <img 
-    src="/logos/logo.png" 
-    alt="Thumbs Up Logo" 
-    className="inline-block w-8 h-8 mr-2 align-top" 
-  />
-  What Makes a Good Prompt?
-</h2>
+        <img 
+          src="/logos/logo.png" 
+          alt="Thumbs Up Logo" 
+          className="inline-block w-8 h-8 mr-2 align-top" 
+        />
+        What Makes a Good Prompt?
+      </h2>
 
       <ul className="space-y-3 text-gray-700 pl-4">
         <li className="flex items-start">
           <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-          <span>
-            <strong>Be specific:</strong> The more detail you give, the better the AI can respond.
-          </span>
+          <span><strong>Be specific:</strong> The more detail you give, the better the AI can respond.</span>
         </li>
         <li className="flex items-start">
           <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-          <span>
-            <strong>Include context:</strong> Tell it what the goal is and how to respond (e.g., summary, script, headline).
-          </span>
+          <span><strong>Include context:</strong> Tell it what the goal is and how to respond (e.g., summary, script, headline).</span>
         </li>
         <li className="flex items-start">
           <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-          <span>
-            <strong>Use examples:</strong> Ask for a rewrite, comparison, or a sample output.
-          </span>
+          <span><strong>Use examples:</strong> Ask for a rewrite, comparison, or a sample output.</span>
         </li>
         <li className="flex items-start">
           <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-          <span>
-            <strong>Set the tone and format:</strong> Choose style (funny, formal, etc.) and medium (email, blog, tweet).
-          </span>
+          <span><strong>Set the tone and format:</strong> Choose style (funny, formal, etc.) and medium (email, blog, tweet).</span>
         </li>
         <li className="flex items-start">
           <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-          <span>
-            <strong>Review the AI’s reply:</strong> Great prompting includes great listening. Check how it responded, then adjust for even better results.
-          </span>
+          <span><strong>Review the AI’s reply:</strong> Great prompting includes great listening. Check how it responded, then adjust for even better results.</span>
         </li>
       </ul>
     </section>
 
     {/* === Section 3: Prompt Examples === */}
-<section className="bg-white rounded-xl shadow-md p-6">
-  <h2 className="text-2xl font-semibold mb-3 text-center">
-    <img 
-      src="/logos/logo.png" 
-      alt="Thumbs Up Logo" 
-      className="inline-block w-8 h-8 mr-2 align-top" 
-    />
-    Real Prompt Examples
-  </h2>
+    <section className="bg-white rounded-xl shadow-md p-6">
+      <h2 className="text-2xl font-semibold mb-3 text-center">
+        <img 
+          src="/logos/logo.png" 
+          alt="Thumbs Up Logo" 
+          className="inline-block w-6 h-6 mr-2 align-top" 
+        />
+        Real Prompt Examples
+      </h2>
 
-  {/* Weak Prompt */}
-  <div className="mb-6">
-    <div className="flex items-center mb-2">
-      <span className="text-violet-700 text-med mr-2">✖️</span>
-      <p className="font-semibold text-gray-800">Weak Prompt:</p>
-    </div>
-    <div className="bg-gray-50 border border-gray-200 rounded p-3 text-sm text-gray-600">
-      Write about climate change.
-    </div>
+      {/* Weak Prompt */}
+      <div className="mb-6">
+        <div className="flex items-center mb-2">
+          <span className="text-violet-700 text-med mr-2">✖️</span>
+          <p className="font-semibold text-gray-800">Weak Prompt:</p>
+        </div>
+        <div className="bg-gray-50 border border-gray-200 rounded p-3 text-sm text-gray-600">
+          Write about climate change.
+        </div>
+      </div>
+
+      {/* Stronger Prompt */}
+      <div>
+        <div className="flex items-center mb-2">
+          <img
+            src="/logos/logo.png"
+            alt="Thumbs Up Logo"
+            className="inline-block w-6 h-6 mr-2"
+          />
+          <p className="font-semibold text-gray-800">Stronger, More Specific Prompt:</p>
+        </div>
+        <div className="bg-gray-50 border border-gray-200 rounded p-3 text-sm text-gray-700">
+          Write a 300-word blog post on how climate change affects small island nations. Make it informative but conversational in tone. End with a hopeful call to action.
+        </div>
+      </div>
+    </section>
   </div>
 
-  {/* Stronger Prompt */}
-  <div>
-    <div className="flex items-center mb-2">
-      <img
-        src="/logos/logo.png"
-        alt="Thumbs Up Logo"
-        className="inline-block w-6 h-6 mr-2"
-      />
-      <p className="font-semibold text-gray-800">Stronger, More Specific Prompt:</p>
-    </div>
-    <div className="bg-gray-50 border border-gray-200 rounded p-3 text-sm text-gray-700">
-      Write a 300-word blog post on how climate change affects small island nations. Make it informative but conversational in tone. End with a hopeful call to action.
-    </div>
-  </div>
-</section>
-
-  </div>
-
-  {/* Right Column: One Tall Ad */}
-  <div className="flex flex-col items-center w-1/4">
-    <div className="w-64 h-[600px] bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
-      Right Skyscraper Ad
+  {/* Right Column: Hidden on Mobile, Vertically Centered */}
+  <div className="hidden lg:flex flex-col items-center w-1/4">
+    <div className="flex flex-col justify-center min-h-[680px]">
+      <div className="w-64 h-[600px] bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
+        Right Skyscraper Ad
+      </div>
     </div>
   </div>
 </div>
 
 
 
-      {/* === Section 4: Tips from Prompt Engineers === */}
+{/* === Section 4: Tips from Prompt Engineers === */}
 <section className="w-full max-w-3xl bg-white rounded-xl shadow-md p-6 mb-12 mt-12">
   <h2 className="text-2xl font-semibold mb-6 text-center">
   <img 
@@ -226,31 +221,36 @@ export default function PromptHelp() {
 </section>
 
 
-    {/* === Ad-Wrapped Section 5 & 6 Block (Ad sides flipped) === */}
-<div className="hidden lg:flex w-full justify-between items-start mt-12 px-8">
-  {/* Left Column: One Tall Skyscraper Ad */}
-  <div className="flex flex-col items-center w-1/4">
-    <div className="w-64 h-[600px] bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
-      Left Skyscraper Ad
+{/* === Ad-Wrapped Section 5 & 6 Block (Ad sides flipped) === */}
+<div className="flex flex-col lg:flex-row w-full justify-center items-start mt-12 px-4 sm:px-6 md:px-8">
+
+  {/* Left Column: Hidden on Mobile, Vertically Centered */}
+  <div className="hidden lg:flex flex-col items-center w-1/4">
+    <div className="flex flex-col justify-center min-h-[680px]">
+      <div className="w-64 h-[600px] bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
+        Left Skyscraper Ad
+      </div>
     </div>
   </div>
 
-  {/* Center Column: Content Sections */}
-  <div className="w-full max-w-3xl space-y-12">
+  {/* Center Column: Sections 5 & 6 */}
+  <div className="w-full lg:max-w-3xl space-y-12">
+
     {/* === Section 5: How to Use This Tool === */}
     <section className="bg-white rounded-xl shadow-md p-6">
       <h2 className="text-2xl font-semibold mb-6 text-center">
-  <img 
-    src="/logos/logo.png" 
-    alt="Thumbs Up Logo" 
-    className="inline-block w-8 h-8 mr-2 align-top" 
-  />
-  How to Use This Tool with Maximum Impact
-</h2>
+        <img 
+          src="/logos/logo.png" 
+          alt="Thumbs Up Logo" 
+          className="inline-block w-8 h-8 mr-2 align-top" 
+        />
+        How to Use This Tool with Maximum Impact
+      </h2>
 
       <p className="text-gray-700 mb-6">
         Free AI Prompt Helper is designed to make your AI prompts clearer, more focused, and easier for ChatGPT, Claude, or Gemini to interpret. Here's how to get the most out of it:
       </p>
+
       <ul className="space-y-3 text-gray-700 pl-4">
         <li className="flex items-start">
           <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
@@ -273,67 +273,69 @@ export default function PromptHelp() {
           <span><strong>Tweak and test as needed:</strong> Great prompts often come from iterating. Adjust and explore based on what the AI gives you.</span>
         </li>
       </ul>
+
       <p className="text-gray-600 mt-6">
         This tool helps you communicate better with AI, without needing to know any technical jargon or advanced prompt tricks.
       </p>
     </section>
 
-{/* === Section 6: Extra Resources === */}
-<section className="bg-white rounded-xl shadow-md p-6">
-  <h2 className="text-2xl font-semibold mb-6 text-center">
-    <img 
-      src="/logos/logo.png" 
-      alt="Thumbs Up Logo" 
-      className="inline-block w-8 h-8 mr-2 align-top" 
-    />
-    Extra Resources on Prompting
-  </h2>
+    {/* === Section 6: Extra Resources === */}
+    <section className="bg-white rounded-xl shadow-md p-6">
+      <h2 className="text-2xl font-semibold mb-6 text-center">
+        <img 
+          src="/logos/logo.png" 
+          alt="Thumbs Up Logo" 
+          className="inline-block w-8 h-8 mr-2 align-top" 
+        />
+        Extra Resources on Prompting
+      </h2>
 
-  <ul className="space-y-3 text-gray-700 pl-4">
-    <li className="flex items-start">
-      <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-      <span>
-        <a href="https://platform.openai.com/docs/guides/gpt" target="_blank" rel="noopener noreferrer" className="text-violet-800 hover:underline">
-          OpenAI’s official GPT guide
-        </a> – Understand how the model interprets prompts and parameters.
-      </span>
-    </li>
-    <li className="flex items-start">
-      <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-      <span>
-        <a href="https://learnprompting.org/" target="_blank" rel="noopener noreferrer" className="text-violet-800 hover:underline">
-          LearnPrompting.org
-        </a> – A community-curated site full of free lessons for all experience levels.
-      </span>
-    </li>
-    <li className="flex items-start">
-      <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-      <span>
-        <a href="https://www.simplilearn.com/tutorials/artificial-intelligence-tutorial/what-is-artificial-intelligence" target="_blank" rel="noopener noreferrer" className="text-violet-800 hover:underline">
-          What is AI? Beginner’s Guide by Simplilearn
-        </a> – A simple, beginner-friendly explanation of AI with examples anyone can understand.
-      </span>
-    </li>
-    <li className="flex items-start">
-      <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-      <span>
-        <a href="https://www.explainthis.io/en/ai" target="_blank" rel="noopener noreferrer" className="text-violet-800 hover:underline">
-          How AI Works: A Visual Beginner’s Guide
-        </a> – See how AI and prompting really work with easy visuals and examples.
-      </span>
-    </li>
-  </ul>
-</section>
-</div>
+      <ul className="space-y-3 text-gray-700 pl-4">
+        <li className="flex items-start">
+          <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+          <span>
+            <a href="https://platform.openai.com/docs/guides/gpt" target="_blank" rel="noopener noreferrer" className="text-violet-800 hover:underline">
+              OpenAI’s official GPT guide
+            </a> – Understand how the model interprets prompts and parameters.
+          </span>
+        </li>
+        <li className="flex items-start">
+          <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+          <span>
+            <a href="https://learnprompting.org/" target="_blank" rel="noopener noreferrer" className="text-violet-800 hover:underline">
+              LearnPrompting.org
+            </a> – A community-curated site full of free lessons for all experience levels.
+          </span>
+        </li>
+        <li className="flex items-start">
+          <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+          <span>
+            <a href="https://www.simplilearn.com/tutorials/artificial-intelligence-tutorial/what-is-artificial-intelligence" target="_blank" rel="noopener noreferrer" className="text-violet-800 hover:underline">
+              What is AI? Beginner’s Guide by Simplilearn
+            </a> – A simple, beginner-friendly explanation of AI with examples anyone can understand.
+          </span>
+        </li>
+        <li className="flex items-start">
+          <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+          <span>
+            <a href="https://www.explainthis.io/en/ai" target="_blank" rel="noopener noreferrer" className="text-violet-800 hover:underline">
+              How AI Works: A Visual Beginner’s Guide
+            </a> – See how AI and prompting really work with easy visuals and examples.
+          </span>
+        </li>
+      </ul>
+    </section>
+  </div>
 
-
-  {/* Right Column: Two 300px-Tall Ads */}
-  <div className="flex flex-col items-center w-1/4 space-y-4">
-    <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
-      Right Ad #1
-    </div>
-    <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
-      Right Ad #2
+  {/* Right Column: Hidden on Mobile, Vertically Centered */}
+  <div className="hidden lg:flex flex-col items-center w-1/4">
+    <div className="flex flex-col justify-center min-h-[680px] space-y-4">
+      <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
+        Right Ad #1
+      </div>
+      <div className="w-64 h-60 bg-gray-200 border border-gray-300 rounded-xl flex items-center justify-center text-gray-600 text-sm">
+        Right Ad #2
+      </div>
     </div>
   </div>
 </div>
