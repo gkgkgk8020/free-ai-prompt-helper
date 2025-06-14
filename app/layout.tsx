@@ -40,6 +40,20 @@ export default function RootLayout({
           }}
         ></script>
         {/* === End MailerLite Script === */}
+      
+      {/* === Google Analytics Tag === */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4C34Y8VDNT"></script>
+      <script
+        dangerouslySetInnerHTML={{
+           __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4C34Y8VDNT');
+          `,
+        }}
+      ></script>
+      
       </body>
     </html>
   );
