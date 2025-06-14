@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-[#1D0B53] via-[#3E1F7A] to-[#D1C4E9] text-gray-800`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-[#1D0B53] via-[#3E1F7A] to-[#D1C4E9] text-gray-900:text-white`}>
         {children}
         
         {/* === MailerLite Universal Script === */}

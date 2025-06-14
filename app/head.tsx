@@ -13,6 +13,9 @@ export default function Head() {
 
       {/* Theme Color for Mobile */}
       <meta name="theme-color" content="#4B0082" />
+      <meta name="color-scheme" content="light dark" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
 
       {/* Open Graph / Facebook */}
       <meta property="og:site_name" content="Free AI Prompt Helper" />
