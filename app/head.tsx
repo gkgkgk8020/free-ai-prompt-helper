@@ -8,6 +8,10 @@ export default function Head() {
       <meta name="description" content="Free AI Prompt Helper helps you improve prompts for ChatGPT, Claude, Gemini and more. Choose tone, length, and style to get better AI results instantly." />
       <meta name="keywords" content="AI prompt help, ChatGPT prompts, improve prompts, Claude, Gemini, prompt engineering, Free AI tool" />
 
+      {/* AdSense Verification */}
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8477228253401329"
+        crossOrigin="anonymous"></script>
+
       {/* Canonical Link */}
       <link rel="canonical" href="https://freeaiprompthelper.com/" />
 
