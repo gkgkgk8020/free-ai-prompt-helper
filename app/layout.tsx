@@ -41,6 +41,7 @@ export default function RootLayout({
         ></script>
         {/* === End MailerLite Script === */}
       
+      
       {/* === Google Analytics Tag === */}
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-4C34Y8VDNT"></script>
       <script
@@ -54,6 +55,13 @@ export default function RootLayout({
         }}
       ></script>
       
+        {/* === Google AdSense Script === */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8477228253401329"
+          crossOrigin="anonymous"
+        />
+
       </body>
     </html>
   );
