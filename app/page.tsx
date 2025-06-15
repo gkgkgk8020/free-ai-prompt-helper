@@ -157,14 +157,14 @@ const finalOutput =
 </div>
 
 {/* === Section Header === */}
-<h2 className="text-center text-base font-semibold mb-4 text-black dark:text-white">Select your improvements</h2>
+<h2 className="text-center text-base font-semibold mb-4 text-white dark:text-white">Select your improvements</h2>
 
 {/* === Labeled Dropdowns === */}
 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
 
   {/* Tone */}
 <div className="flex flex-col items-center">
-  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Tone</label>
+  <label className="block text-sm font-medium mb-1 text-center text-white dark:text-white">Tone</label>
   <select
     value={tone}
     onChange={(e) => setTone(e.target.value)}
@@ -181,7 +181,7 @@ const finalOutput =
 
 {/* Length */}
 <div className="flex flex-col items-center">
-  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Length</label>
+  <label className="block text-sm font-medium mb-1 text-center text-white dark:text-white">Length</label>
   <select
     value={length}
     onChange={(e) => setLength(e.target.value)}
@@ -196,7 +196,7 @@ const finalOutput =
 
 {/* Style */}
 <div className="flex flex-col items-center">
-  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Style</label>
+  <label className="block text-sm font-medium mb-1 text-center text-white dark:text-white">Style</label>
   <select
     value={style}
     onChange={(e) => setStyle(e.target.value)}
@@ -212,7 +212,7 @@ const finalOutput =
 
 {/* Audience */}
 <div className="flex flex-col items-center">
-  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Audience</label>
+  <label className="block text-sm font-medium mb-1 text-center text-white dark:text-white">Audience</label>
   <select
     value={audience}
     onChange={(e) => setAudience(e.target.value)}
@@ -229,7 +229,7 @@ const finalOutput =
 
 {/* Medium */}
 <div className="flex flex-col items-center">
-  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Medium</label>
+  <label className="block text-sm font-medium mb-1 text-center text-white dark:text-white">Medium</label>
   <select
     value={platform}
     onChange={(e) => setPlatform(e.target.value)}
@@ -246,7 +246,7 @@ const finalOutput =
 
 {/* Type */}
 <div className="flex flex-col items-center">
-  <label className="block text-sm font-medium mb-1 text-center text-black dark:text-white">Type</label>
+  <label className="block text-sm font-medium mb-1 text-center text-white dark:text-white">Type</label>
   <select
     value={contentType}
     onChange={(e) => setContentType(e.target.value)}
