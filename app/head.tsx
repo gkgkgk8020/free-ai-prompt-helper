@@ -9,8 +9,19 @@ export default function Head() {
       <meta name="keywords" content="AI prompt help, ChatGPT prompts, improve prompts, Claude, Gemini, prompt engineering, Free AI tool" />
 
       {/* AdSense Verification */}
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8477228253401329"
-        crossOrigin="anonymous"></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+            var ads = document.createElement("script");
+            ads.async = true;
+            ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8477228253401329";
+            ads.setAttribute("crossorigin", "anonymous");
+            document.head.appendChild(ads);
+            })();
+          `,
+        }}
+      />
 
       {/* Canonical Link */}
       <link rel="canonical" href="https://freeaiprompthelper.com/" />
