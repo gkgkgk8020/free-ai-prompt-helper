@@ -10,17 +10,9 @@ export default function Head() {
 
       {/* AdSense Verification */}
       <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-            var ads = document.createElement("script");
-            ads.async = true;
-            ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8477228253401329";
-            ads.setAttribute("crossorigin", "anonymous");
-            document.head.appendChild(ads);
-            })();
-          `,
-        }}
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8477228253401329"
+        crossOrigin="anonymous"
       />
 
       {/* Canonical Link */}
