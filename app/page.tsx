@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { useRef } from "react";
+import MobileAdPlaceholder from "./components/MobileAdPlaceholder";
 
 declare global {
   interface Window {
@@ -625,10 +626,12 @@ const finalOutput =
   </div>
 </div>
 
+{/* === Mobile Ad: Between Premium Model & FAQ === */}
+<MobileAdPlaceholder />
 
 
 {/* === Section 4: FAQ with Framed Card and Mirrored Side Ads === */}
-<div className="flex flex-col lg:flex-row w-full justify-center items-start gap-8 mt-12 px-4 sm:px-6 md:px-8">
+<div className="flex flex-col lg:flex-row w-full justify-center items-start gap-8 mt-1 lg:mt-12 px-4 sm:px-6 md:px-8">
 
   {/* Left Ad */}
   <div className="hidden lg:flex flex-col items-center w-1/4">

@@ -1,6 +1,7 @@
 // app/prompt-help/page.tsx
 
 import Link from "next/link";
+import MobileAdPlaceholder from "../components/MobileAdPlaceholder";
 
 // === SEO Metadata for Prompt Help Page ===
 export const metadata = {
@@ -46,7 +47,7 @@ export default function PromptHelp() {
 
 
 {/* === Section 2: What Are Prompts? === */}
-<section className="w-full max-w-3xl bg-white rounded-xl shadow-md p-6 mb-12">
+<section className="w-full max-w-3xl bg-white rounded-xl shadow-md p-6 mb-6 sm:mb-12">
   <h2 className="text-2xl font-semibold mb-4 text-center">
   <img 
     src="/logos/logo.png" 
@@ -69,6 +70,10 @@ export default function PromptHelp() {
     The better your prompt, the better the result. That’s what this page, and this site is all about.
   </p>
 </section>
+
+
+{/* --- Mobile Ad #1 --- */}
+<MobileAdPlaceholder marginTop="mt-7" marginBottom="mb-0" />
 
 
 {/* === Ad-Wrapped Section 2 & 3 Block === */}
@@ -162,6 +167,11 @@ export default function PromptHelp() {
       </div>
     </section>
   </div>
+
+
+{/* --- Mobile Ad #2 --- */}
+<MobileAdPlaceholder marginTop="mt-12" marginBottom="mb-0" />
+
 
   {/* Right Column: Hidden on Mobile, Vertically Centered */}
   <div className="hidden lg:flex flex-col items-center w-1/4">
@@ -278,6 +288,11 @@ export default function PromptHelp() {
         This tool helps you communicate better with AI, without needing to know any technical jargon or advanced prompt tricks.
       </p>
     </section>
+
+
+{/* --- Mobile Ad #3 --- */}
+<MobileAdPlaceholder marginTop="mt-12" marginBottom="mb-12" />
+
 
     {/* === Section 6: Extra Resources === */}
     <section className="bg-white rounded-xl shadow-md p-6">
