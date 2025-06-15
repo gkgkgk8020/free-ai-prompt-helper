@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description: "Boost your AI prompts with this free optimization tool.",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,9 +25,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* === Google AdSense Script === */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8477228253401329"
+          crossOrigin="anonymous"
+        />
+        {/* === End Google AdSense Script === */}
+      </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-[#1D0B53] via-[#3E1F7A] to-[#D1C4E9] text-gray-900:text-white`}>
         {children}
-        
+
         {/* === MailerLite Universal Script === */}
         <script
           dangerouslySetInnerHTML={{
@@ -40,28 +51,20 @@ export default function RootLayout({
           }}
         ></script>
         {/* === End MailerLite Script === */}
-      
-      
-      {/* === Google Analytics Tag === */}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4C34Y8VDNT"></script>
-      <script
-        dangerouslySetInnerHTML={{
-           __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-4C34Y8VDNT');
-          `,
-        }}
-      ></script>
-      
-        {/* === Google AdSense Script === */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8477228253401329"
-          crossOrigin="anonymous"
-        />
 
+        {/* === Google Analytics Tag === */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4C34Y8VDNT"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-4C34Y8VDNT');
+            `,
+          }}
+        ></script>
+        {/* === End Google Analytics Script === */}
       </body>
     </html>
   );
